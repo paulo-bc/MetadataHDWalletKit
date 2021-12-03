@@ -1,11 +1,11 @@
 [![Build Status](https://travis-ci.com/essentiaone/HDWallet.svg?branch=develop)](https://travis-ci.com/essentiaone/HDWallet)
 [![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/repos/essentiaone/HDWallet/branches/develop/badge-risk.svg)](https://copilot.blackducksoftware.com/github/repos/essentiaone/HDWallet/branches/develop)
-[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/HDWalletKit/badge.png)](https://cocoadocs.org/docsets/HDWalletKit)
-[![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/HDWalletKit/badge.svg)](https://cocoadocs.org/docsets/HDWalletKit)
-[![Badge w/ Licence](https://cocoapod-badges.herokuapp.com/l/HDWalletKit/badge.svg)](https://cocoadocs.org/docsets/HDWalletKit)
+[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/MetadataHDWalletKit/badge.png)](https://cocoadocs.org/docsets/MetadataHDWalletKit)
+[![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/MetadataHDWalletKit/badge.svg)](https://cocoadocs.org/docsets/MetadataHDWalletKit)
+[![Badge w/ Licence](https://cocoapod-badges.herokuapp.com/l/MetadataHDWalletKit/badge.svg)](https://cocoadocs.org/docsets/MetadataHDWalletKit)
 
-# HDWalletKit
-HDWalletKit is a Swift framwork that enables you to create and use bitcoin HD wallet ([Hierarchical Deterministic Wallets](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)) in your own app.
+# MetadataHDWalletKit
+MetadataHDWalletKit is a Swift framwork that enables you to create and use bitcoin HD wallet ([Hierarchical Deterministic Wallets](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)) in your own app.
 <p>
 <img src="https://clogos.essdev.info/64x64/bitcoin.png" >  <img src="https://clogos.essdev.info/64x64/bitcoin-cash.png" >  <img src="https://clogos.essdev.info/64x64/litecoin.png" > <img src="https://clogos.essdev.info/64x64/dash.png" > <img src="https://clogos.essdev.info/64x64/ethereum.png" > <img src="https://clogos.essdev.info/64x64/erc20.png" >
 </p>
@@ -22,8 +22,8 @@ You can check if the address generation is working right [here](https://iancolem
 
 ## Installation
 ### CocoaPods
-<p>To integrate HDWalletKit into your Xcode project using <a href="http://cocoapods.org">CocoaPods</a>, specify it in your <code>Podfile</code>:</p>
-<pre><code class="ruby language-ruby">pod 'HDWalletKit'</code></pre>
+<p>To integrate MetadataHDWalletKit into your Xcode project using <a href="http://cocoapods.org">CocoaPods</a>, specify it in your <code>Podfile</code>:</p>
+<pre><code class="ruby language-ruby">pod 'MetadataHDWalletKit'</code></pre>
 
 ### Carthage
 To install with [Carthage](https://github.com/Carthage/Carthage), simply add this in your `Cartfile`:
