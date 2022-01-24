@@ -33,6 +33,23 @@ public enum Coin {
         }
     }
 
+    // https://github.com/satoshilabs/slips/blob/master/slip-0132.md
+    public var publicKeyVersion: UInt32 {
+        switch self {
+        case .litecoin:
+            return 0x019da462
+        case .bitcoinCash: fallthrough
+        case .bitcoin:
+            return 0x0488b21e
+        case .dash:
+            return 0x02fe52f8
+        case .dogecoin:
+            return 0x0488c42e
+        default:
+            fatalError("Not implemented")
+        }
+    }
+
     // P2PKH
     public var publicKeyHash: UInt8 {
         switch self {

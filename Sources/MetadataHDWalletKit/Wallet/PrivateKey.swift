@@ -221,6 +221,7 @@ extension PrivateKey {
         )
     }
 
+    /// Provides the extended private key
     public func extended() -> String {
 
         func getPrivKeyBytes33() -> [UInt8] {
@@ -230,28 +231,49 @@ extension PrivateKey {
             return bytes
         }
 
-        func serialize() -> Data {
-            var bytes = [UInt8]()
-            bytes += Data(from: coin.privateKeyVersion.bigEndian).bytes
-            bytes += [depth]
-            bytes += Data(from: parentFingerprint).bytes
-            bytes += index.bytes
-            bytes += chainCode
-            bytes += getPrivKeyBytes33()
-            assert(bytes.count == 78)
-            return Data(bytes)
-        }
-
-        func addChecksum(data: Data) -> Data {
-            var data = data
-            data += data.doubleSHA256.prefix(4)
-            return data
-        }
-
-        let serialized = serialize()
+        let serialized = serialize(
+            coinVersion: coin.privateKeyVersion,
+            key: Data(getPrivKeyBytes33())
+        )
         let checksummed = addChecksum(data: serialized)
         let encoded = Base58.encode(checksummed)
         return encoded
+    }
+
+    /// Provides the extended public key
+    public func extendedPublic() -> String {
+        let serialized = serialize(
+            coinVersion: coin.publicKeyVersion,
+            key: publicKey.compressedPublicKey
+        )
+        let checksummed = addChecksum(data: serialized)
+        let encoded = Base58.encode(checksummed)
+        return encoded
+    }
+
+    private func serialize(coinVersion: UInt32, key: Data) -> Data {
+        var bytes = [UInt8]()
+        // version: puts xprv or xpub at the start
+        bytes += Data(from: coinVersion.bigEndian).bytes
+        // depth: how many times this child has been derived from master key (0 = master key)
+        bytes += [depth]
+        // fingerprint: created from parent public key (allows you to spot adjacent xprv and xpubs)
+        bytes += Data(from: parentFingerprint).bytes
+        // index: the index of this child key from the parent
+        bytes += index.bytes
+        // chainCode: the current chain code being used for this key
+        bytes += chainCode
+        // the private key or public key you want to create a serialized extended key for (prepend 0x00 for private)
+        bytes += key
+        assert(bytes.count == 78)
+        return Data(bytes)
+    }
+
+    /// Adds SHA256 twice to the given data
+    /// - Parameter data: A `Data` object to be processed
+    /// - Returns: A processed `Data` object
+    private func addChecksum(data: Data) -> Data {
+        data + data.doubleSHA256.prefix(4)
     }
 
     public static func from(extended: String) -> Result<Self, PrivateKeyError> {
