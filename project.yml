@@ -1,0 +1,36 @@
+name: Example
+
+options:
+
+  bundleIDPrefix: com.example
+  deploymentTarget:
+    iOS: 15.0
+
+packages: 
+  MetadataHDWalletKit:
+    path: ../MetadataHDWalletKit
+
+targets:
+
+  MetadataHDWalletKitExample:
+    platform: iOS
+    type: application
+    info:
+      path: Example/Info.plist
+      properties:
+            UILaunchScreen:
+    sources:
+      - path: ./Example/App.swift
+    dependencies: 
+      - package: MetadataHDWalletKit
+
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: 1
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.MetadataHDWalletKit
+
+schemes:
+  MetadataHDWalletKitExample:
+    build:
+      targets:
+        MetadataHDWalletKitExample: all
