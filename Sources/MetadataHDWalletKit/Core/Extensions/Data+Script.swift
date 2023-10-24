@@ -59,6 +59,7 @@ func += (lhs: inout Data, rhs: OpCodeProtocol) {
 }
 
 extension Data: BinaryConvertible {
+    @_optimize(none)
     static func + (lhs: Data, rhs: Data) -> Data {
         var data = Data()
         data.append(lhs)
