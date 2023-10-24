@@ -2,7 +2,7 @@ import SwiftUI
 import MetadataHDWalletKit
 
 @main
-struct Crashes2App: App {
+struct Example: App {
     var body: some Scene {
         WindowGroup {
             VStack {
