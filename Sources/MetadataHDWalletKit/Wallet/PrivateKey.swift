@@ -18,6 +18,8 @@ enum PrivateKeyType {
     case nonHd
 }
 
+let secp256k1CurveOrder = BInt(hex: "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141")!
+
 public struct PrivateKey {
     public let raw: Data
     public let chainCode: Data
@@ -150,8 +152,7 @@ public struct PrivateKey {
         let digest = Crypto.HMACSHA512(key: chainCode, data: data)
         let factor = BInt(data: digest[0..<32])
 
-        let curveOrder = BInt(hex: "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141")!
-        let derivedPrivateKey = ((BInt(data: raw) + factor) % curveOrder).data
+        let derivedPrivateKey = ((BInt(data: raw) + factor) % secp256k1CurveOrder).data
         let derivedChainCode = digest[32..<64]
 
         let depth = depth + 1
