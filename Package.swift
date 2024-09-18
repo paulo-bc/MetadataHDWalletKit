@@ -1,4 +1,4 @@
-// swift-tools-version: 5.8
+// swift-tools-version: 5.10
 
 import PackageDescription
 
@@ -16,8 +16,8 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/Boilertalk/secp256k1.swift.git",
-            from: "0.1.7"
+            url: "https://github.com/21-DOT-DEV/swift-secp256k1.git",
+            exact: "0.17.0"
         ),
         .package(
             url: "https://github.com/krzyzanowskim/CryptoSwift.git",
@@ -29,7 +29,7 @@ let package = Package(
             name: "MetadataHDWalletKit",
             dependencies: [
                 .product(name: "CryptoSwift", package: "CryptoSwift"),
-                .product(name: "secp256k1", package: "secp256k1.swift")
+                .product(name: "secp256k1", package: "swift-secp256k1")
             ]
         ),
         .testTarget(
