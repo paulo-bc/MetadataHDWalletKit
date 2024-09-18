@@ -6,8 +6,8 @@
 //  Copyright © 2018 yuzushioh. All rights reserved.
 //
 
-import CryptoSwift
-import Foundation
+//import CryptoSwift
+//import Foundation
 
 // MARK: Base56Encode
 

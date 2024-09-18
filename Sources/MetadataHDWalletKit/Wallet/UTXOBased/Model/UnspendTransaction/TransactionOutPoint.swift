@@ -6,7 +6,6 @@
 //  Copyright © 2018 Essentia. All rights reserved.
 //
 
-import CryptoSwift
 import Foundation
 
 public struct TransactionOutPoint {

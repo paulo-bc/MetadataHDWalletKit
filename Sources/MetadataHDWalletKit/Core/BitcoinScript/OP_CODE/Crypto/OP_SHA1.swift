@@ -6,7 +6,6 @@
 //  Copyright © 2018 BitcoinKit developers. All rights reserved.
 //
 
-import CryptoSwift
 import Foundation
 
 // The input is hashed using SHA-1.
